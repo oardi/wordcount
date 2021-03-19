@@ -26,7 +26,7 @@ export default function Home() {
 	const handleInputChange = e => {
 		e.persist();
 		const val = e.target.value;
-		const words = val.trim().replace(/[^\w\s]/gi, '').replace(/_/g,'').replace(/\r?\n|\r/g, ' ').split(' ').filter(v => v);
+		const words = val.trim().replace(/[^\w\s]/gi, '').replace(/_/g, '').replace(/\r?\n|\r/g, ' ').split(' ').filter(v => v);
 
 		const density = words.reduce((map, word) => {
 			const key = word.toLowerCase();
@@ -106,21 +106,18 @@ export default function Home() {
 							{state.density.length > 0 &&
 								<Card className="mt-2">
 									<CardBody>
-										<CardTitle>
-											Density
-									</CardTitle>
-										<List>
-											{state.density.map(d =>
-												<ListItem key={d.key}>
-													<ListItemText
-														primary={d.key}
-													/>
-													<span className="ml-auto">{d.value}</span>
-												</ListItem>
-											)}
-										</List>
-										{/* {state.density.length === 0 && <ListItem>-</ListItem>} */}
+										<CardTitle>Density</CardTitle>
 									</CardBody>
+									<List>
+										{state.density.map(d =>
+											<ListItem key={d.key}>
+												<ListItemText
+													primary={d.key}
+												/>
+												<span className="ml-auto">{d.value}</span>
+											</ListItem>
+										)}
+									</List>
 								</Card>
 							}
 						</div>

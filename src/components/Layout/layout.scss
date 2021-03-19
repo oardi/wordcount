@@ -214,16 +214,14 @@ h4,
 }
 
 @media (max-width: 480px) {
-	.container {
-		padding: 0;
-	}
+	// .container {
+	// }
 }
 
 .grid {
 	display: grid;
 	column-gap: 15px;
 	row-gap: 15px;
-	// grid-auto-columns: 2fr 1fr;
 	grid-template-columns: 2fr 1fr;
 }
 

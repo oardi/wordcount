@@ -20,9 +20,8 @@ export const List = (props) => {
 
 	const getCssClasses = () => {
 		const cssClasses = [];
-		cssClasses.push('list list-group');
 		if (isFlush) {
-			cssClasses.push(`list-group-flush`);
+			cssClasses.push(styles.flush);
 		}
 		cssClasses.push(styles.list);
 		return cssClasses.filter(css => css).join(' ');
