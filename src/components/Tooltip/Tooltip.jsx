@@ -13,9 +13,7 @@ export const Tooltip = (props) => {
 	const refTooltip = useRef(null);
 
 	useEffect(() => {
-		console.warn('asdf');
 		if (show === true && refChild && refChild.current) {
-			console.warn('shooooow');
 			createPopper(refChild.current, (refTooltip.current), {
 				placement: placement,
 				modifiers: [
@@ -31,12 +29,10 @@ export const Tooltip = (props) => {
 	}, [show]);
 
 	const handleMouseOver = () => {
-		console.warn('mouseover');
 		setShow(true);
 	}
 
 	const handleMouseLeave = () => {
-		console.warn('mouseleave');
 		setShow(false);
 	}
 

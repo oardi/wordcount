@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea, List, ListItem, ListItemText, Tooltip } from "../components";
+import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea, List, ListItem, ListItemText, Tooltip, Checkbox } from "../components";
 import { graphql, useStaticQuery } from 'gatsby';
 
 export default function Home() {
