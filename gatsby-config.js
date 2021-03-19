@@ -2,10 +2,10 @@ const path = require("path");
 
 module.exports = {
 	siteMetadata: {
-		title: "Wordnumber",
-		titleTemplate: "%s - Wordnumber",
+		title: "Wordcount light",
+		titleTemplate: "%s - Wordcount light",
 		description: "Instantly count words, characters and characters without white spaces by typing or copy-pasting your text in our free online word count tool.",
-		siteUrl: "https://wordnumber.de",
+		siteUrl: "https://wordcountlight.de",
 		author: "Ardian Shala",
 		keywords: "TODO",
 		themeColor: "#3f51b5",

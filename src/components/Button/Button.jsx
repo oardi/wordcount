@@ -1,8 +1,10 @@
 import React from "react";
-import styles from './Button.module.scss';
 import { VARIANT } from '../enums';
+import styles from './Button.module.scss';
 
-export const Button = ({ children, className, color = 'primary', variant = VARIANT.contained, ...rest }) => {
+export const Button = (props) => {
+
+	const { children, className, color = 'primary', variant = VARIANT.contained, ...rest } = props;
 
 	const getCssClass = () => {
 		const result = [];
