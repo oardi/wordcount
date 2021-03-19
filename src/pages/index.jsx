@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea } from "../components";
+import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea, List, ListItem } from "../components";
 import { graphql, useStaticQuery } from 'gatsby';
 
 export default function Home() {
@@ -27,11 +27,13 @@ export default function Home() {
 		const val = e.target.value;
 		const words = val.split(' ').filter(v => v);
 
-		const density = words.reduce((map, word) =>
-			Object.assign(map, {
-				[word]: (map[word]) ? map[word] + 1 : 1,
-			}), {}
-		);
+		const density = words.reduce((map, word) => {
+			const key = word.toLowerCase();
+			return ({
+				...map,
+				[key]: (map[word.toLowerCase()]) ? map[word.toLowerCase()] + 1 : 1
+			})
+		}, {});
 
 		const densitySortedByValue = Object.keys(density).map(d => ({ key: d, value: density[d] })).sort((a, b) => a.value - b.value).reverse();
 
@@ -50,9 +52,7 @@ export default function Home() {
 			<AppBar>
 				<div className="container">
 					<AppBarTitle>
-						<h1 className="display-4">
-							{data.site.siteMetadata.title}
-						</h1>
+						<h1>{data.site.siteMetadata.title}</h1>
 					</AppBarTitle>
 				</div>
 			</AppBar>
@@ -87,7 +87,7 @@ export default function Home() {
 										Characters: {state.characters}
 									</div>
 									<div>
-										Characters without whitespaces: {state.withoutSpaces}
+										without whitespaces: {state.withoutSpaces}
 									</div>
 								</CardBody>
 							</Card>
@@ -97,12 +97,18 @@ export default function Home() {
 									<CardTitle>
 										Density
 									</CardTitle>
+									<List>
+										{state.density.length > 0 && state.density.map(d =>
+											<ListItem key={d.key}>{d.key} {d.value}</ListItem>
+										)}
+									</List>
+										{/* {state.density.length === 0 && <ListItem>-</ListItem>} */}
 									<ul>
 										{state.density.length > 0 && state.density.map(d =>
 											<li key={d.key}>{d.key} {d.value}</li>
 										)}
 
-										{state.density.length === 0 && <li>-</li> }
+										{state.density.length === 0 && <li>-</li>}
 									</ul>
 								</CardBody>
 							</Card>
