@@ -1,4 +1,5 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
+import styles from './ListItem.module.scss';
 
 export const ListItem = (props) => {
 
@@ -6,7 +7,6 @@ export const ListItem = (props) => {
 
 	const getCssClasses = () => {
 		const cssClasses = [];
-		cssClasses.push('list-group-item d-flex justify-content-start align-items-center');
 		if (active) {
 			cssClasses.push(`active`);
 		}
@@ -19,6 +19,8 @@ export const ListItem = (props) => {
 		if (className) {
 			cssClasses.push(className);
 		}
+		cssClasses.push(styles.listItem);
+
 		return cssClasses.filter(css => css).join(' ');
 	}
 

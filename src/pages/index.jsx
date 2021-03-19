@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea, List, ListItem } from "../components";
+import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea, List, ListItem, ListItemText } from "../components";
 import { graphql, useStaticQuery } from 'gatsby';
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
 	const handleInputChange = e => {
 		e.persist();
 		const val = e.target.value;
-		const words = val.split(' ').filter(v => v);
+		const words = val.trim().replace(/[^\w\s]/gi, '').replace(/\r?\n|\r/g, '').split(' ').filter(v => v);
 
 		const density = words.reduce((map, word) => {
 			const key = word.toLowerCase();
@@ -99,17 +99,15 @@ export default function Home() {
 									</CardTitle>
 									<List>
 										{state.density.length > 0 && state.density.map(d =>
-											<ListItem key={d.key}>{d.key} {d.value}</ListItem>
+											<ListItem key={d.key}>
+												<ListItemText
+													primary={d.key}
+												/>
+												<span className="ml-auto">{d.value}</span>
+											</ListItem>
 										)}
 									</List>
-										{/* {state.density.length === 0 && <ListItem>-</ListItem>} */}
-									<ul>
-										{state.density.length > 0 && state.density.map(d =>
-											<li key={d.key}>{d.key} {d.value}</li>
-										)}
-
-										{state.density.length === 0 && <li>-</li>}
-									</ul>
+									{/* {state.density.length === 0 && <ListItem>-</ListItem>} */}
 								</CardBody>
 							</Card>
 						</div>

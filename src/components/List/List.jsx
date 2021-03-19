@@ -1,5 +1,6 @@
 import React, { cloneElement, useEffect, useState } from 'react';
 import { ListItemModel } from './list.models';
+import styles from './List.module.scss';
 
 export const List = (props) => {
 
@@ -8,7 +9,6 @@ export const List = (props) => {
 	const [listItems, setListItems] = useState([]);
 
 	useEffect(() => {
-		console.warn(listItems, setListItems);
 		if (children) {
 			if (Array.isArray(children)) {
 				setListItems(children.map(child => new ListItemModel(child)));
@@ -24,6 +24,7 @@ export const List = (props) => {
 		if (isFlush) {
 			cssClasses.push(`list-group-flush`);
 		}
+		cssClasses.push(styles.list);
 		return cssClasses.filter(css => css).join(' ');
 	}
 
