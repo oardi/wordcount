@@ -59,17 +59,21 @@ export default function Home() {
 							<Card>
 								<CardBody>
 									<div>
+										Words: {state.wordCount}
+									</div>
+									<div>
 										Characters: {state.characters}
 									</div>
 									<div>
-										Word count: {state.wordCount}
-									</div>
-									<div>
-										without whitespaces: {state.withoutSpaces}
+										Characters without whitespaces: {state.withoutSpaces}
 									</div>
 								</CardBody>
 							</Card>
 						</div>
+					</div>
+
+					<div>
+						SEO CONTENT TODO
 					</div>
 
 				</div>

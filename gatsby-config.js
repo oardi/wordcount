@@ -4,7 +4,7 @@ module.exports = {
 	siteMetadata: {
 		title: "Wordcount light",
 		titleTemplate: "%s - Wordcount light",
-		description: "Instantly count words, characters and characters without white spaces by typing or copy-pasting your text in our free online word count tool.",
+		description: "Count the number of words, characters, and characters without spaces by typing or copying text in the text box.",
 		siteUrl: "https://wordcountlight.de",
 		author: "Ardian Shala",
 		keywords: "TODO",
