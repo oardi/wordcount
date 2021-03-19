@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Chip, Button, Card, CardBody, CardTitle, Head, Icon, Layout, Social } from "../components";
 import { StaticImage } from 'gatsby-plugin-image';
 import XingBrands from '../images/xing-brands.svg';
@@ -25,6 +25,25 @@ export default function Home() {
 		const domainPart = 'ardianshala';
 		const domain = 'de';
 		window.location = `mailto:${localPart}@${domainPart}.${domain}`;
+	}
+
+	const [state, setState] = useState({
+		characters: 0,
+		wordCount: 0,
+		withoutSpaces: 0
+	});
+
+	const handleInputChange = e => {
+		e.persist();
+
+		const val  = e.target.value;
+		console.warn(val);
+
+		setState({
+			characters: val.length,
+			withoutSpaces: val.replace(/ /g,'').length,
+			wordCount: val.split(' ').length
+		});
 	}
 
 	return (
@@ -54,24 +73,25 @@ export default function Home() {
 
 					<Card>
 						<CardBody>
-							<CardTitle as="h3">
-								Erreichbarkeit
-							</CardTitle>
 
-							<Button variant={VARIANT.text} onClick={sendMail}>
-								<div className="d-flex align-items-center">
-									<Icon icon={<EnvelopeRegular />} />
-									<span className="ml-2">E-Mail</span>
-								</div>
-							</Button>
+							<div className="form-group">
+								<textarea className="form-control" onChange={handleInputChange} />
+							</div>
 
-							<Social path="https://www.xing.com/profile/Ardian_Shala2" icon={<XingBrands />}>
-								Xing
-							</Social>
+						</CardBody>
+					</Card>
 
-							<Social path="https://www.linkedin.com/in/ardian-shala-79a7a5101/" icon={<LinkedInBrands />}>
-								LinkedIn
-							</Social>
+					<Card>
+						<CardBody>
+							<div>
+								Characters: {state.characters}
+							</div>
+							<div>
+								Word count: {state.wordCount}
+							</div>
+							<div>
+								without whitespaces: {state.withoutSpaces}
+							</div>
 						</CardBody>
 					</Card>
 
