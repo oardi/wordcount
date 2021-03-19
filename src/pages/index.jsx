@@ -66,7 +66,7 @@ export default function Home() {
 						<h2>
 							{data.site.siteMetadata.description}
 						</h2>
-						<h3>Count the number of words, characters, and characters without whitespaces by typing or copying text in the text box</h3>
+						<h3>Just type in some text and get the amount of words, characters (with spaces, without spaces) and the density of words.</h3>
 					</div>
 
 					<div className="grid">
