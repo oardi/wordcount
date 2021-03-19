@@ -19,13 +19,14 @@ export default function Home() {
 		characters: 0,
 		wordCount: 0,
 		withoutSpaces: 0,
+		spaces: 0,
 		density: []
 	});
 
 	const handleInputChange = e => {
 		e.persist();
 		const val = e.target.value;
-		const words = val.trim().replace(/[^\w\s]/gi, '').replace(/\r?\n|\r/g, ' ').split(' ').filter(v => v);
+		const words = val.trim().replace(/[^\w\s]/gi, '').replace(/_/g,'').replace(/\r?\n|\r/g, ' ').split(' ').filter(v => v);
 
 		const density = words.reduce((map, word) => {
 			const key = word.toLowerCase();
@@ -39,8 +40,9 @@ export default function Home() {
 
 		setState({
 			characters: val.length,
-			withoutSpaces: val.replace(/ /g, '').length,
+			withoutSpaces: val.replace(/ /g, '')?.length,
 			wordCount: words.length,
+			spaces: val.match(/([\s]+)/g)?.length,
 			density: densitySortedByValue
 		});
 	};
@@ -64,6 +66,7 @@ export default function Home() {
 						<h2>
 							{data.site.siteMetadata.description}
 						</h2>
+						<h3>Count the number of words, characters, and characters without whitespaces by typing or copying text in the text box</h3>
 					</div>
 
 					<div className="grid">
@@ -80,36 +83,46 @@ export default function Home() {
 						<div className="col">
 							<Card>
 								<CardBody>
-									<div>
-										Words: {state.wordCount}
-									</div>
-									<div>
-										Characters: {state.characters}
-									</div>
-									<div>
-										without whitespaces: {state.withoutSpaces}
-									</div>
+									<CardTitle>Words</CardTitle>
+									<div>total: {state.wordCount}</div>
 								</CardBody>
 							</Card>
 
 							<Card className="mt-2">
 								<CardBody>
-									<CardTitle>
-										Density
-									</CardTitle>
-									<List>
-										{state.density.length > 0 && state.density.map(d =>
-											<ListItem key={d.key}>
-												<ListItemText
-													primary={d.key}
-												/>
-												<span className="ml-auto">{d.value}</span>
-											</ListItem>
-										)}
-									</List>
-									{/* {state.density.length === 0 && <ListItem>-</ListItem>} */}
+									<CardTitle>Characters</CardTitle>
+									<div>
+										total: {state.characters}
+									</div>
+									<div>
+										without spaces: {state.withoutSpaces}
+									</div>
+									<div>
+										only spaces: {state.spaces}
+									</div>
 								</CardBody>
 							</Card>
+
+							{state.density.length > 0 &&
+								<Card className="mt-2">
+									<CardBody>
+										<CardTitle>
+											Density
+									</CardTitle>
+										<List>
+											{state.density.map(d =>
+												<ListItem key={d.key}>
+													<ListItemText
+														primary={d.key}
+													/>
+													<span className="ml-auto">{d.value}</span>
+												</ListItem>
+											)}
+										</List>
+										{/* {state.density.length === 0 && <ListItem>-</ListItem>} */}
+									</CardBody>
+								</Card>
+							}
 						</div>
 					</div>
 

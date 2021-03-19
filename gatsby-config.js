@@ -4,7 +4,7 @@ module.exports = {
 	siteMetadata: {
 		title: "Wordcount light",
 		titleTemplate: "%s - Wordcount light",
-		description: "Count the number of words, characters, and characters without whitespaces by typing or copying text in the text box.",
+		description: "A simple Wordcounter - no Ads, no Cookies, no Storage",
 		siteUrl: "https://wordcountlight.de",
 		author: "Ardian Shala",
 		keywords: "TODO",
