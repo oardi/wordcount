@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea, List, ListItem, ListItemText } from "../components";
+import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea, List, ListItem, ListItemText, Tooltip } from "../components";
 import { graphql, useStaticQuery } from 'gatsby';
 
 export default function Home() {
@@ -112,9 +112,18 @@ export default function Home() {
 										{state.density.map(d =>
 											<ListItem key={d.key}>
 												<ListItemText
-													primary={d.key}
+													primary={
+														<Tooltip text={d.key}>
+															<div>
+																{(d.key && d.key.length >= 30) ? `${d.key.slice(0, 30)}...` : d.key}
+															</div>
+														</Tooltip>
+													}
 												/>
-												<span className="ml-auto">{d.value}</span>
+
+												<span className="ml-auto">
+													{d.value}
+												</span>
 											</ListItem>
 										)}
 									</List>

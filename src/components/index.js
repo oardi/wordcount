@@ -12,3 +12,4 @@ export * from './Footer';
 export * from './Social';
 export * from './Textarea';
 export * from './List';
+export * from './Tooltip';
