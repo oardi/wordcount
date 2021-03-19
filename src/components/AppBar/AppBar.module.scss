@@ -1,0 +1,9 @@
+.appbar {
+	box-shadow: var(--shadow);
+	padding: 0.5rem 1rem;
+
+	&.primary {
+		color: var(--primary-contrast-text);
+		background-color: var(--primary);
+	}
+}

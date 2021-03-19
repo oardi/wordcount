@@ -1,3 +1,5 @@
+export * from './AppBar/AppBar';
+export * from './AppBar/AppBarTitle';
 export * from './Layout/Layout';
 export * from './Chip/Chip';
 export * from './Button/Button';

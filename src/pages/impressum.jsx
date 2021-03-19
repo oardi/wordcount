@@ -36,7 +36,7 @@ const About = () => {
 					<h1 className="display-3">Impressum</h1>
 				</Hero>
 
-				<Card>
+				<Card className="mb-3">
 					<CardBody>
 						<CardTitle as="h3">
 							Verantwortlich für die Seite
@@ -53,7 +53,7 @@ const About = () => {
 					</CardBody>
 				</Card>
 
-				<Card>
+				<Card className="mb-3">
 					<CardBody>
 						<CardTitle as="h3">
 							Design und Umsetzung
@@ -63,7 +63,7 @@ const About = () => {
 					</CardBody>
 				</Card>
 
-				<Card>
+				<Card className="mb-3">
 					<CardBody>
 						<CardTitle as="h3">
 							Haftungshinweis
@@ -77,7 +77,7 @@ const About = () => {
 					</CardBody>
 				</Card>
 
-				<Card>
+				<Card className="mb-3">
 					<CardBody>
 						<CardTitle as="h3">
 							Verlinkte Seiten
@@ -88,7 +88,7 @@ const About = () => {
 					</CardBody>
 				</Card>
 
-				<Card>
+				<Card className="mb-3">
 					<CardBody>
 						<CardTitle as="h3">
 							Urheberrecht

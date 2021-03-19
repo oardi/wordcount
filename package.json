@@ -2,7 +2,7 @@
 	"name": "wordcountlight",
 	"author": "Ardian Shala",
 	"private": true,
-	"description": "Count the number of words, characters, and characters without spaces by typing or copying text in the text box.",
+	"description": "Count the number of words, characters, and characters without whitespaces by typing or copying text in the text box.",
 	"version": "1.2.0",
 	"scripts": {
 		"build": "gatsby build",

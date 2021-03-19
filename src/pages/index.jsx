@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, CardBody, Head, Layout, Textarea } from "../components";
+import { AppBar, AppBarTitle, Card, CardBody, Head, Layout, Textarea } from "../components";
 import { graphql, useStaticQuery } from 'gatsby';
 
 export default function Home() {
@@ -33,15 +33,22 @@ export default function Home() {
 
 	return (
 		<Layout>
-			<Head title="Wordnumber" />
+			<Head title={data.site.siteMetadata.description} />
+
+			<AppBar>
+				<div className="container">
+					<AppBarTitle>
+						<h1 className="display-4">
+							{data.site.siteMetadata.title}
+						</h1>
+					</AppBarTitle>
+				</div>
+			</AppBar>
 
 			<main>
 				<div className="container">
 
 					<div className="d-flex flex-column align-items-center text-center pt-4 pb-4">
-						<h1 className="display-4">
-							{data.site.siteMetadata.title}
-						</h1>
 						<h2>
 							{data.site.siteMetadata.description}
 						</h2>
@@ -51,7 +58,7 @@ export default function Home() {
 						<div className="col">
 							<Card>
 								<CardBody>
-									<Textarea placeholder="type something" onChange={handleInputChange} />
+									<Textarea placeholder="type or paste something..." onChange={handleInputChange} />
 								</CardBody>
 							</Card>
 						</div>
@@ -70,10 +77,6 @@ export default function Home() {
 								</CardBody>
 							</Card>
 						</div>
-					</div>
-
-					<div>
-						SEO CONTENT TODO
 					</div>
 
 				</div>

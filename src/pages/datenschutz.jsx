@@ -17,7 +17,7 @@ const About = () => {
 					<h1>Datenschutz</h1>
 				</Hero>
 
-				<Card>
+				<Card className="mb-3">
 					<CardBody>
 						<CardTitle as="h3">
 							Datenerhebung
@@ -27,7 +27,7 @@ const About = () => {
 					</CardBody>
 				</Card>
 
-				<Card>
+				<Card className="mb-3">
 					<CardBody>
 						<CardTitle as="h3">
 							SSL-Verschlüsselung
@@ -40,7 +40,7 @@ const About = () => {
 					</CardBody>
 				</Card>
 
-				<Card>
+				<Card className="mb-3">
 					<CardBody>
 						<CardTitle as="h3">
 							Änderung unserer Datenschutzbestimmungen
@@ -55,7 +55,7 @@ const About = () => {
 					</CardBody>
 				</Card>
 
-				<Card>
+				<Card className="mb-3">
 					<CardBody>
 						<CardTitle as="h3">
 							Fragen an den Datenschutzbeauftragten
