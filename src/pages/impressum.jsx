@@ -7,14 +7,14 @@ import { VARIANT } from '../components/enums';
 const About = () => {
 
 	const data = useStaticQuery(graphql`
-	query {
-		site {
-			siteMetadata {
-				author
+		query {
+			site {
+				siteMetadata {
+					author
+				}
 			}
 		}
-	}
-`);
+	`);
 
 	const sendMail = () => {
 		const localPart = 'info';

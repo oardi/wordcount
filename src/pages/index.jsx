@@ -74,7 +74,7 @@ export default function Home() {
 							<Card>
 								<CardBody>
 									<Textarea
-										placeholder="type or paste something..."
+										placeholder="type or paste some text..."
 										onInput={handleInputChange}
 									/>
 								</CardBody>

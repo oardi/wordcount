@@ -62,7 +62,7 @@ const About = () => {
 						</CardTitle>
 
 						Für Fragen zum Datenschutz schicken Sie uns bitte eine
-						Nachricht an <a href="mailto:info@ardianshala.de?subject=Datenschutz" className="ml-2">info@ardianshala.de</a> mit dem Betreff „Datenschutz“.
+						Nachricht an <a href="mailto:info@ardianshala.de?subject=Datenschutz">info@ardianshala.de</a> mit dem Betreff „Datenschutz“.
 					</CardBody>
 				</Card>
 			</div>
