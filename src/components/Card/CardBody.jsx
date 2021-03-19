@@ -1,0 +1,11 @@
+import React from "react";
+
+import styles from './CardBody.module.scss';
+
+export const CardBody = ({ children, ...rest }) => {
+	return (
+		<div className={styles.cardBody} {...rest}>
+			{children}
+		</div>
+	);
+}

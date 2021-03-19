@@ -1,0 +1,181 @@
+@import "../../../node_modules/modern-normalize/modern-normalize.css";
+
+:root {
+	--primary-light: #6573c3;
+	--primary: #3f51b5;
+	--primary-dark: #2c387e;
+	--primary-contrast-text: #fff;
+
+	--secondary-light: #e5e7eb;
+	--secondary: #dfe1e6;
+	--secondary-dark: #9c9da1;
+	--secondary-contrast-text: #212529;
+
+	--light: #f8f9fa;
+	--dark: #343a40;
+	--white: #fff;
+
+	--bodyBg: #f8f9fa;
+	--bodyColor: #212529;
+
+	--borderRadius: 0.25rem;
+	--shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+
+	--buttonMinWidth: 62px;
+	--buttonPadding: 11px 15px;
+
+	--fontFamily: "Segoe UI", "Roboto", "Helvetica Neue", "Arial";
+	--fontSize: 16px;
+}
+
+html,
+body,
+#gatsby-focus-wrapper,
+#___gatsby {
+	height: 100%;
+}
+
+#gatsby-focus-wrapper {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+body {
+	color: var(--bodyColor);
+	background: var(--bodyBg);
+	font-family: var(--fontFamily);
+	font-size: var(--fontSize);
+	line-height: 1.5;
+}
+
+a {
+	color: var(--primary);
+	text-decoration: none;
+	&:hover {
+		color: var(--primary-dark);
+		text-decoration: underline;
+	}
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 0.5rem;
+	font-weight: 350;
+	line-height: 1.2;
+	margin-top: 0;
+}
+
+h4,.h4 {
+	font-size: 1.5rem;
+}
+
+.display-4 {
+	font-size: 2rem;
+	font-weight: 300;
+	line-height: 1.2;
+}
+
+.display-5 {
+	font-size: 1.5rem;
+}
+
+.d-flex {
+	display: flex;
+}
+
+.inline-flex {
+	display: inline-flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap !important;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.align-items-center {
+	align-items: center;
+}
+
+.justify-items-center {
+	justify-content: center;
+}
+
+.pt-4 {
+	padding-top: 1.5rem !important;
+}
+
+.pb-4 {
+	padding-bottom: 1.5rem !important;
+}
+
+.ml-2 {
+	margin-left: 0.5rem !important;
+}
+
+.mb-2 {
+	margin-bottom: 0.5rem !important;
+}
+
+.mr-2 {
+	margin-right: 0.5rem !important;
+}
+
+.p-2 {
+	padding: 0.5rem !important;
+}
+
+.container {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.border-top {
+	border-top: 4px solid var(--primary);
+}
+
+.rounded-circle {
+	border-radius: 50%;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.nav-link {
+	display: inline-flex;
+	padding: 0.5rem 1rem;
+	align-items: center;
+
+	i {
+		margin-right: 5px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 960px;
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		padding: 0;
+	}
+}
