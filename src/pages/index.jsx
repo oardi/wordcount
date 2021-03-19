@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, AppBarTitle, Card, CardBody, Head, Layout, Textarea } from "../components";
+import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea } from "../components";
 import { graphql, useStaticQuery } from 'gatsby';
 
 export default function Home() {
@@ -18,18 +18,30 @@ export default function Home() {
 	const [state, setState] = useState({
 		characters: 0,
 		wordCount: 0,
-		withoutSpaces: 0
+		withoutSpaces: 0,
+		density: []
 	});
 
 	const handleInputChange = e => {
 		e.persist();
 		const val = e.target.value;
+		const words = val.split(' ').filter(v => v);
+
+		const density = words.reduce((map, word) =>
+			Object.assign(map, {
+				[word]: (map[word]) ? map[word] + 1 : 1,
+			}), {}
+		);
+
+		const densitySortedByValue = Object.keys(density).map(d => ({ key: d, value: density[d] })).sort((a, b) => a.value - b.value).reverse();
+
 		setState({
 			characters: val.length,
 			withoutSpaces: val.replace(/ /g, '').length,
-			wordCount: val.split(' ').filter(w => w).length
+			wordCount: words.length,
+			density: densitySortedByValue
 		});
-	}
+	};
 
 	return (
 		<Layout>
@@ -58,7 +70,10 @@ export default function Home() {
 						<div className="col">
 							<Card>
 								<CardBody>
-									<Textarea placeholder="type or paste something..." onChange={handleInputChange} />
+									<Textarea
+										placeholder="type or paste something..."
+										onInput={handleInputChange}
+									/>
 								</CardBody>
 							</Card>
 						</div>
@@ -74,6 +89,21 @@ export default function Home() {
 									<div>
 										Characters without whitespaces: {state.withoutSpaces}
 									</div>
+								</CardBody>
+							</Card>
+
+							<Card className="mt-2">
+								<CardBody>
+									<CardTitle>
+										Density
+									</CardTitle>
+									<ul>
+										{state.density.length > 0 && state.density.map(d =>
+											<li key={d.key}>{d.key} {d.value}</li>
+										)}
+
+										{state.density.length === 0 && <li>-</li> }
+									</ul>
 								</CardBody>
 							</Card>
 						</div>
