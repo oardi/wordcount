@@ -25,7 +25,7 @@ export default function Home() {
 	const handleInputChange = e => {
 		e.persist();
 		const val = e.target.value;
-		const words = val.trim().replace(/[^\w\s]/gi, '').replace(/\r?\n|\r/g, '').split(' ').filter(v => v);
+		const words = val.trim().replace(/[^\w\s]/gi, '').replace(/\r?\n|\r/g, ' ').split(' ').filter(v => v);
 
 		const density = words.reduce((map, word) => {
 			const key = word.toLowerCase();
