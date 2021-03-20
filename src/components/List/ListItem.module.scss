@@ -8,6 +8,8 @@
 	color: #495057;
 	text-align: inherit;
 
+	transition: background 0.5s ease;
+
 	&:hover {
 		cursor: pointer;
 		z-index: 1;

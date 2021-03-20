@@ -18,13 +18,6 @@ export const Checkbox = (props) => {
 
 	const { id, checked, className = '', label, name, value = "off", ...rest } = props;
 
-	// TODO
-	// add own value
-	// set from outer
-	// update on change
-	// emit to outer
-	// can be: true/false, custom
-
 	const [isChecked, setIsChecked] = useState(false);
 	const checkboxElement = useRef(null);
 
@@ -73,6 +66,7 @@ export const Checkbox = (props) => {
 				hidden={true}
 				value={value}
 				{...rest}
+				readOnly
 			/>
 		</div>
 	);
