@@ -9,6 +9,7 @@ export const AppBar = (props) => {
 		const result = [];
 		result.push(styles[color]);
 		result.push(styles.appbar);
+		shadow && result.push(styles['shadow']);
 		return result.filter(r => r).join(' ');
 	};
 

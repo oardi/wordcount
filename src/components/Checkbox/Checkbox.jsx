@@ -2,18 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { IconButton } from '../IconButton';
 import { CheckSquareRegularIcon, SquareRegularIcon } from '../Icons';
 
-// TODO refactor htmlBasaeProps
-// export interface ICheckboxProps extends HtmlBaseProps {
-// 	id?: string;
-// 	name?: string;
-// 	className?: string;
-// 	checked?: boolean;
-// 	label?: string;
-// 	value?: string;
-// 	onChange?: (val: React.FocusEvent<HTMLInputElement>) => void;
-// 	onKeyDown?: (event: React.KeyboardEvent) => void;
-// }
-
 export const Checkbox = (props) => {
 
 	const { id, checked, className = '', label, name, value = "off", ...rest } = props;

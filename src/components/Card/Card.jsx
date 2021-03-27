@@ -1,13 +1,16 @@
 import React from "react";
 import styles from './Card.module.scss';
 
-export const Card = ({ children, className, ...rest }) => {
+export const Card = (props) => {
+
+	const { children, className = '', shadow = true, ...rest } = props;
 
 	const getCssClass = () => {
-		const result = [];
-		result.push(styles.card);
-		result.push(className);
-		return result.filter(r => r).join(' ');
+		const cssClasses = [];
+		cssClasses.push(styles.card);
+		shadow && cssClasses.push(styles.shadow);
+		cssClasses.push(className);
+		return cssClasses.filter(r => r).join(' ');
 	}
 
 	return (

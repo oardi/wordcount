@@ -7,4 +7,8 @@
 		color: var(--primary-contrast-text);
 		background-color: var(--primary);
 	}
+
+	&.shadow {
+		box-shadow: var(--shadow);
+	}
 }
