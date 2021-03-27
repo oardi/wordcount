@@ -1,6 +1,7 @@
 .appbar {
 	box-shadow: var(--shadow);
 	padding: 0.5rem 1rem;
+	display: flex;
 
 	&.primary {
 		color: var(--primary-contrast-text);

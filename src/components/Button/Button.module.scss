@@ -1,14 +1,38 @@
 .button {
 	border: 0;
-	padding: 6px 16px;
-	line-height: 1.75;
 	outline: none;
 	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	border-radius: var(--borderRadius);
+
+	min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+
+	box-shadow: var(--shadow);
 
 	&.contained {
 		&.primary {
 			color: var(--primary-contrast-text);
 			background-color: var(--primary);
+			&:hover {
+				background-color: var(--primary-dark);
+			}
+		}
+
+		&.secondary {
+			color: var(--secondary-contrast-text);
+			background-color: var(--secondary);
+			&:hover {
+				background-color: var(--secondary-dark);
+			}
+		}
+
+		&.accent {
+			color: var(--accent-contrast-text);
+			background-color: var(--accent);
+			&:hover {
+				background-color: var(--accent-dark);
+			}
 		}
 	}
 

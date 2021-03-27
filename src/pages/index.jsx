@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea, List, ListItem, ListItemText, Tooltip, Checkbox } from "../components";
+import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea, List, ListItem, ListItemText, Tooltip, Button } from "../components";
 import { graphql, useStaticQuery } from 'gatsby';
 
 export default function Home() {
@@ -20,7 +20,8 @@ export default function Home() {
 		wordCount: 0,
 		withoutSpaces: 0,
 		spaces: 0,
-		density: []
+		density: [],
+		textAreaVal: ''
 	});
 
 	const handleInputChange = e => {
@@ -36,14 +37,31 @@ export default function Home() {
 			})
 		}, {});
 
-		const densitySortedByValue = Object.keys(density).map(d => ({ key: d, value: density[d] })).sort((a, b) => a.value - b.value).reverse();
+		const densitySorted = Object.keys(density)
+			.map(d => ({ key: d, value: density[d] }))
+			.sort((a, b) => (b.value - a.value) || ((a.key > b.key) - (a.key < b.key)));
 
 		setState({
 			characters: val.length,
 			withoutSpaces: val.replace(/ /g, '')?.length,
 			wordCount: words.length,
 			spaces: val.match(/([\s]+)/g)?.length,
-			density: densitySortedByValue
+			density: densitySorted
+		});
+	};
+
+	const handleClickClear = () => {
+		clearAll();
+	};
+
+	const clearAll = () => {
+		setState({
+			characters: 0,
+			wordCount: 0,
+			withoutSpaces: 0,
+			spaces: 0,
+			density: [],
+			textAreaVal: ''
 		});
 	};
 
@@ -75,7 +93,8 @@ export default function Home() {
 								<CardBody>
 									<Textarea
 										placeholder="type or paste some text..."
-										onInput={handleInputChange}
+										onChange={handleInputChange}
+										value={state.textAreaVal}
 									/>
 								</CardBody>
 							</Card>
@@ -83,7 +102,17 @@ export default function Home() {
 						<div className="col">
 							<Card>
 								<CardBody>
-									<CardTitle>Words</CardTitle>
+									<div className="d-flex">
+										<CardTitle>Words</CardTitle>
+										{state.characters > 0 &&
+											<div className="d-flex ml-auto">
+												<div className="ml-auto mb-3">
+													<Button color="accent" onClick={handleClickClear}>clear all</Button>
+												</div>
+											</div>
+										}
+									</div>
+
 									<div>total: {state.wordCount}</div>
 								</CardBody>
 							</Card>
@@ -103,32 +132,42 @@ export default function Home() {
 								</CardBody>
 							</Card>
 
-							{state.density.length > 0 &&
-								<Card className="mt-2">
-									<CardBody>
-										<CardTitle>Density</CardTitle>
-									</CardBody>
-									<List>
-										{state.density.map(d =>
-											<ListItem key={d.key}>
-												<ListItemText
-													primary={
-														<Tooltip text={d.key}>
-															<div>
-																{(d.key && d.key.length >= 30) ? `${d.key.slice(0, 30)}...` : d.key}
-															</div>
-														</Tooltip>
-													}
-												/>
+							<Card className="mt-2">
+								<CardBody>
+									<CardTitle>Density</CardTitle>
+								</CardBody>
 
-												<span className="ml-auto">
-													{d.value}
-												</span>
-											</ListItem>
-										)}
+								<List>
+									{state.density.map(d =>
+										<ListItem key={d.key}>
+											<ListItemText
+												primary={
+													<Tooltip text={d.key} placement="top">
+														<div>
+															{(d.key && d.key.length >= 30) ? `${d.key.slice(0, 30)}...` : d.key}
+														</div>
+													</Tooltip>
+												}
+											/>
+
+											<span className="ml-auto">
+												{d.value}
+											</span>
+										</ListItem>
+									)}
+								</List>
+
+								{state.density?.length === 0 &&
+									<List>
+										<ListItem>
+											<ListItemText
+												primary={'No text yet'}
+											/>
+										</ListItem>
 									</List>
-								</Card>
-							}
+								}
+							</Card>
+
 						</div>
 					</div>
 
