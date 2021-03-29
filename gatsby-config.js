@@ -9,7 +9,7 @@ module.exports = {
 		author: "Ardian Shala",
 		keywords: "wordcount,count,counter,character,whitespace,space,amount,online",
 		themeColor: "#3f51b5",
-		googleSiteVerification: "p5ABZNkLPeuO8Ct7t152F89XCl-0PqDnCLLzI7wO3sc",
+		googleSiteVerification: "l8K1FFcrlXgC0-nF_zmWQn3fpdkW_Yw7NFxRlV3fcmk",
 		viewPort: "width=device-width, initial-scale=1, maximum-scale=5",
 		image: "/images/icon.png"
 	},
