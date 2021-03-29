@@ -12,8 +12,12 @@ export const AppBarTitle = (props) => {
 		return result.filter(r => r).join(' ');
 	}
 
+	const handleClick = () => {
+		onClick && onClick();
+	}
+
 	return (
-		<div className={getCssClass()} onClick={() => onClick && onClick()}>
+		<div className={getCssClass()} onClick={handleClick} onKeyDown={e => e.key === 13 && handleClick() }>
 			{children}
 		</div>
 	)

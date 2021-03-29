@@ -28,6 +28,18 @@ module.exports = {
 			}
 		},
 		`gatsby-plugin-react-helmet`,
-		`gatsby-plugin-sitemap`
+		`gatsby-plugin-sitemap`,
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				icon: `src/images/icon.png`,
+				name: `Wordcount`,
+				short_name: `Wordcount`,
+				start_url: `/`,
+				background_color: `#f8f9fa`,
+				theme_color: `#3f51b5`,
+				display: `standalone`,
+			},
+		},
 	],
 }
