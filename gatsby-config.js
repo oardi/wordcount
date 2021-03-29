@@ -2,8 +2,8 @@ const path = require("path");
 
 module.exports = {
 	siteMetadata: {
-		title: "Wordcount light",
-		titleTemplate: "%s - Wordcount light",
+		title: "Wordcount",
+		titleTemplate: "%s - Wordcount",
 		description: "A simple Wordcounter - no Ads, no Cookies, no Storage needed",
 		siteUrl: "https://wordcount.brosmos.app",
 		author: "Ardian Shala",
