@@ -2,11 +2,9 @@ import React, { cloneElement, Fragment, useEffect, useRef, useState } from 'reac
 import { createPopper } from '@popperjs/core';
 import styles from './Tooltip.module.scss';
 
-// 	placement?: 'top' | 'bottom' | 'right' | 'left',
-
 export const Tooltip = (props) => {
 
-	const { children, text, placement = 'left' } = props;
+	const { children, text, placement = 'bottom' } = props;
 
 	const [show, setShow] = useState(false);
 	const refChild = useRef(null);
@@ -19,9 +17,7 @@ export const Tooltip = (props) => {
 				modifiers: [
 					{
 						name: 'offset',
-						options: {
-							offset: [0, 8],
-						},
+						options: { offset: [0, 8] }
 					},
 				],
 			});
