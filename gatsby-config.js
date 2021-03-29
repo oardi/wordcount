@@ -11,7 +11,7 @@ module.exports = {
 		themeColor: "#3f51b5",
 		googleSiteVerification: "p5ABZNkLPeuO8Ct7t152F89XCl-0PqDnCLLzI7wO3sc",
 		viewPort: "width=device-width, initial-scale=1, maximum-scale=5",
-		image: "/images/ardianshala.png"
+		image: "/images/icon.png"
 	},
 
 	plugins: [
