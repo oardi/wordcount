@@ -1,9 +1,8 @@
 import React, { cloneElement, useEffect, useState } from 'react';
+import * as styles from './List.module.scss';
 import { ListItemModel } from './list.models';
-import styles from './List.module.scss';
 
-export const List = (props) => {
-
+export const List = props => {
 	const { children, isFlush = false, isHoverable = false } = props;
 
 	const [listItems, setListItems] = useState([]);
@@ -25,16 +24,17 @@ export const List = (props) => {
 		}
 		cssClasses.push(styles.list);
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
 	return (
 		<ul className={getCssClasses()}>
-			{listItems && listItems.map((listItem, index) => (
-				cloneElement(listItem, {
-					isHoverable: isHoverable,
-					key: listItem.key ? listItem.key : index
-				})
-			))}
+			{listItems &&
+				listItems.map((listItem, index) =>
+					cloneElement(listItem, {
+						isHoverable: isHoverable,
+						key: listItem.key ? listItem.key : index,
+					})
+				)}
 		</ul>
 	);
-}
+};

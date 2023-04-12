@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from './AppBar.module.scss';
+import * as styles from './AppBar.module.scss';
 
-export const AppBar = (props) => {
-
+export const AppBar = props => {
 	const { children, color = 'primary', shadow = true, ...rest } = props;
 
 	const getCssClasses = () => {

@@ -1,14 +1,27 @@
-import React, { useState } from "react";
-import { AppBar, AppBarTitle, Card, CardBody, CardTitle, Head, Layout, Textarea, List, ListItem, ListItemText, Tooltip, Button } from "../components";
 import { graphql, useStaticQuery } from 'gatsby';
+import React, { useState } from 'react';
+import {
+	AppBar,
+	AppBarTitle,
+	Button,
+	Card,
+	CardBody,
+	CardTitle,
+	Head,
+	Layout,
+	List,
+	ListItem,
+	ListItemText,
+	Textarea,
+	Tooltip,
+} from '../components';
 
 export default function Home() {
-
 	const data = useStaticQuery(graphql`
 		query {
 			site {
 				siteMetadata {
-					title,
+					title
 					description
 				}
 			}
@@ -21,32 +34,38 @@ export default function Home() {
 		withoutSpaces: 0,
 		spaces: 0,
 		density: [],
-		textAreaVal: ''
+		textAreaVal: '',
 	});
 
 	const handleInputChange = e => {
 		e.persist();
 		const val = e.target.value;
-		const words = val.trim().replace(/[^\w\s]/gi, '').replace(/_/g, '').replace(/\r?\n|\r/g, ' ').split(' ').filter(v => v);
+		const words = val
+			.trim()
+			.replace(/[^\w\s]/gi, '')
+			.replace(/_/g, '')
+			.replace(/\r?\n|\r/g, ' ')
+			.split(' ')
+			.filter(v => v);
 
 		const density = words.reduce((map, word) => {
 			const key = word.toLowerCase();
-			return ({
+			return {
 				...map,
-				[key]: (map[word.toLowerCase()]) ? map[word.toLowerCase()] + 1 : 1
-			})
+				[key]: map[word.toLowerCase()] ? map[word.toLowerCase()] + 1 : 1,
+			};
 		}, {});
 
 		const densitySorted = Object.keys(density)
 			.map(d => ({ key: d, value: density[d] }))
-			.sort((a, b) => (b.value - a.value) || ((a.key > b.key) - (a.key < b.key)));
+			.sort((a, b) => b.value - a.value || (a.key > b.key) - (a.key < b.key));
 
 		setState({
 			characters: val.length,
 			withoutSpaces: val.replace(/ /g, '')?.length,
 			wordCount: words.length,
 			spaces: val.match(/([\s]+)/g)?.length,
-			density: densitySorted
+			density: densitySorted,
 		});
 	};
 
@@ -61,7 +80,7 @@ export default function Home() {
 			withoutSpaces: 0,
 			spaces: 0,
 			density: [],
-			textAreaVal: ''
+			textAreaVal: '',
 		});
 	};
 
@@ -79,12 +98,12 @@ export default function Home() {
 
 			<main>
 				<div className="container">
-
 					<div className="d-flex flex-column align-items-center text-center pt-4 pb-4">
-						<h2>
-							{data.site.siteMetadata.description}
-						</h2>
-						<h3>Just type in some text and get the amount of words, characters (with spaces, without spaces) and the density of words.</h3>
+						<h2>{data.site.siteMetadata.description}</h2>
+						<h3>
+							Just type in some text and get the amount of words, characters (with spaces, without spaces) and the density of
+							words.
+						</h3>
 					</div>
 
 					<div className="grid">
@@ -104,13 +123,15 @@ export default function Home() {
 								<CardBody>
 									<div className="d-flex">
 										<CardTitle>Words</CardTitle>
-										{state.characters > 0 &&
+										{state.characters > 0 && (
 											<div className="d-flex ml-auto">
 												<div className="ml-auto mb-3">
-													<Button color="accent" onClick={handleClickClear}>clear all</Button>
+													<Button color="accent" onClick={handleClickClear}>
+														clear all
+													</Button>
 												</div>
 											</div>
-										}
+										)}
 									</div>
 
 									<div>total: {state.wordCount}</div>
@@ -120,15 +141,9 @@ export default function Home() {
 							<Card className="mt-2">
 								<CardBody>
 									<CardTitle>Characters</CardTitle>
-									<div>
-										total: {state.characters}
-									</div>
-									<div>
-										without spaces: {state.withoutSpaces}
-									</div>
-									<div>
-										only spaces: {state.spaces}
-									</div>
+									<div>total: {state.characters}</div>
+									<div>without spaces: {state.withoutSpaces}</div>
+									<div>only spaces: {state.spaces}</div>
 								</CardBody>
 							</Card>
 
@@ -138,41 +153,33 @@ export default function Home() {
 								</CardBody>
 
 								<List>
-									{state.density.map(d =>
+									{state.density.map(d => (
 										<ListItem key={d.key}>
 											<ListItemText
 												primary={
 													<Tooltip text={d.key} placement="top">
-														<div>
-															{(d.key && d.key.length >= 30) ? `${d.key.slice(0, 30)}...` : d.key}
-														</div>
+														<div>{d.key && d.key.length >= 30 ? `${d.key.slice(0, 30)}...` : d.key}</div>
 													</Tooltip>
 												}
 											/>
 
-											<span className="ml-auto">
-												{d.value}
-											</span>
+											<span className="ml-auto">{d.value}</span>
 										</ListItem>
-									)}
+									))}
 								</List>
 
-								{state.density?.length === 0 &&
+								{state.density?.length === 0 && (
 									<List>
 										<ListItem>
-											<ListItemText
-												primary={'No text yet'}
-											/>
+											<ListItemText primary={'No text yet'} />
 										</ListItem>
 									</List>
-								}
+								)}
 							</Card>
-
 						</div>
 					</div>
-
 				</div>
 			</main>
-		</Layout >
+		</Layout>
 	);
 }

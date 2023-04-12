@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from './IconButton.module.scss';
+import * as styles from './IconButton.module.scss';
 
-export const IconButton = (props) => {
-
+export const IconButton = props => {
 	const { children, icon, variant = 'text', color = 'primary', isActive, className = '', ...rest } = props;
 
 	const getCssClasses = () => {
@@ -28,14 +27,8 @@ export const IconButton = (props) => {
 	};
 
 	return (
-		<button
-			type="button"
-			className={getCssClasses()}
-			{...rest}
-		>
-			<span className={styles.svgIcon}>
-				{icon}
-			</span>
-		</button >
+		<button type="button" className={getCssClasses()} {...rest}>
+			<span className={styles.svgIcon}>{icon}</span>
+		</button>
 	);
 };

@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
 import { VARIANT } from '../enums';
-import styles from './Button.module.scss';
+import * as styles from './Button.module.scss';
 
-export const Button = (props) => {
-
+export const Button = props => {
 	const { children, className, color = 'primary', variant = VARIANT.contained, ...rest } = props;
 
 	const getCssClass = () => {
@@ -13,11 +12,11 @@ export const Button = (props) => {
 		result.push(styles[variant]);
 		result.push(styles.button);
 		return result.filter(r => r).join(' ');
-	}
+	};
 
 	return (
 		<button className={getCssClass()} {...rest}>
 			{children}
 		</button>
 	);
-}
+};

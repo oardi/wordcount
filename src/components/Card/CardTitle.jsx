@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import styles from './CardTitle.module.scss';
+import * as styles from './CardTitle.module.scss';
 
-export const CardTitle = (props) => {
-
+export const CardTitle = props => {
 	const { children, className, as: As = 'div', ...rest } = props;
 
 	const getCssClasses = () => {
@@ -18,4 +17,4 @@ export const CardTitle = (props) => {
 			{children}
 		</As>
 	);
-}
+};

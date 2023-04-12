@@ -1,7 +1,6 @@
 import React from 'react';
 
-export const Row = (props) => {
-
+export const Row = props => {
 	const { children, className = '', start = 1, end = 1, ...rest } = props;
 
 	const getCssClasses = () => {
@@ -15,4 +14,4 @@ export const Row = (props) => {
 			{children}
 		</div>
 	);
-}
+};

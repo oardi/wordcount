@@ -1,7 +1,7 @@
-import React from "react";
 import { Link } from 'gatsby';
-import styles from './Social.module.scss';
+import React from 'react';
 import { Icon } from '../Icon/Icon';
+import * as styles from './Social.module.scss';
 
 export const Social = ({ children, path, icon }) => {
 	return (
@@ -9,10 +9,8 @@ export const Social = ({ children, path, icon }) => {
 			<div className="inline-flex align-items-center">
 				<Icon icon={icon} />
 
-				<span className="ml-2">
-					{children}
-				</span>
+				<span className="ml-2">{children}</span>
 			</div>
 		</Link>
-	)
-}
+	);
+};

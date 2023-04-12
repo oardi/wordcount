@@ -1,17 +1,17 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
 	siteMetadata: {
-		title: "Wordcount",
-		titleTemplate: "%s - Wordcount",
-		description: "A simple Wordcounter - no Ads, no Cookies, no Storage needed",
-		siteUrl: "https://wordcount.brosmos.app",
-		author: "Ardian Shala",
-		keywords: "wordcount,count,counter,character,whitespace,space,amount,online",
-		themeColor: "#3f51b5",
-		googleSiteVerification: "vxDK1JytYJCPHxghcmNs323PHR-Jsl_Gjr1_tWw_Ybw",
-		viewPort: "width=device-width, initial-scale=1, maximum-scale=5",
-		image: "/images/icon.png"
+		title: 'Wordcount',
+		titleTemplate: '%s - Wordcount',
+		description: 'A simple Wordcounter - no Ads, no Cookies, no Storage needed',
+		siteUrl: 'https://wordcount.brosmos.app',
+		author: 'Ardian Shala',
+		keywords: 'wordcount,count,counter,character,whitespace,space,amount,online',
+		themeColor: '#3f51b5',
+		googleSiteVerification: 'vxDK1JytYJCPHxghcmNs323PHR-Jsl_Gjr1_tWw_Ybw',
+		viewPort: 'width=device-width, initial-scale=1, maximum-scale=5',
+		image: '/images/icon.png',
 	},
 
 	plugins: [
@@ -20,12 +20,12 @@ module.exports = {
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sass`,
 		{
-			resolve: "gatsby-plugin-react-svg",
+			resolve: 'gatsby-plugin-react-svg',
 			options: {
 				rule: {
-					include: /images/
-				}
-			}
+					include: /images/,
+				},
+			},
 		},
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-sitemap`,
@@ -41,6 +41,6 @@ module.exports = {
 				display: `standalone`,
 			},
 		},
-		`gatsby-plugin-offline`
+		`gatsby-plugin-offline`,
 	],
-}
+};

@@ -1,5 +1,5 @@
-import React from "react";
-import styles from './CardBody.module.scss';
+import React from 'react';
+import * as styles from './CardBody.module.scss';
 
 export const CardBody = ({ children, ...rest }) => {
 	return (
@@ -7,4 +7,4 @@ export const CardBody = ({ children, ...rest }) => {
 			{children}
 		</div>
 	);
-}
+};

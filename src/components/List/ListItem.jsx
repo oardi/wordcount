@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from './ListItem.module.scss';
+import * as styles from './ListItem.module.scss';
 
-export const ListItem = (props) => {
-
+export const ListItem = props => {
 	const { children, active = false, className, isHoverable = false, isDisabled = false, onClick } = props;
 
 	const getCssClasses = () => {
@@ -22,9 +21,9 @@ export const ListItem = (props) => {
 		cssClasses.push(styles.listItem);
 
 		return cssClasses.filter(css => css).join(' ');
-	}
+	};
 
-	const handleClick = (e) => {
+	const handleClick = e => {
 		onClick && onClick(e);
 	};
 
@@ -33,4 +32,4 @@ export const ListItem = (props) => {
 			{children}
 		</li>
 	);
-}
+};

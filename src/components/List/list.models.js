@@ -1,6 +1,6 @@
 export class ListItemModel {
 	constructor(dto) {
-		return { ...dto }
+		return { ...dto };
 	}
 
 	key;

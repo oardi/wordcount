@@ -1,6 +1,6 @@
-import React from "react";
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import styles from './Footer.module.scss';
+import React from 'react';
+import * as styles from './Footer.module.scss';
 
 const Footer = () => {
 	const data = useStaticQuery(graphql`
@@ -20,16 +20,12 @@ const Footer = () => {
 				©{year} - {data.site.siteMetadata.author}
 			</div>
 			<div>
-				<Link to="/datenschutz">
-					Datenschutz
-				</Link>
+				<Link to="/datenschutz">Datenschutz</Link>
 				&nbsp;
-				<Link to="/impressum">
-					Impressum
-				</Link>
+				<Link to="/impressum">Impressum</Link>
 			</div>
 		</footer>
 	);
-}
+};
 
 export default Footer;

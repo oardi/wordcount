@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { IconButton } from '../IconButton';
 import { CheckSquareRegularIcon, SquareRegularIcon } from '../Icons';
 
-export const Checkbox = (props) => {
-
-	const { id, checked, className = '', label, name, value = "off", ...rest } = props;
+export const Checkbox = props => {
+	const { id, checked, className = '', label, name, value = 'off', ...rest } = props;
 
 	const [isChecked, setIsChecked] = useState(false);
 	const checkboxElement = useRef(null);
@@ -17,7 +16,7 @@ export const Checkbox = (props) => {
 
 	const icons = {
 		default: <SquareRegularIcon />,
-		selected: <CheckSquareRegularIcon />
+		selected: <CheckSquareRegularIcon />,
 	};
 
 	const getCssClasses = () => {
@@ -38,12 +37,9 @@ export const Checkbox = (props) => {
 
 	return (
 		<div className="checkbox-container">
-
 			<IconButton className={getCssClasses()} onClick={handleClick} icon={getIcon()} />
 
-			<label onClick={handleClick}>
-				{label}
-			</label>
+			<label onClick={handleClick}>{label}</label>
 
 			<input
 				type="checkbox"
@@ -58,4 +54,4 @@ export const Checkbox = (props) => {
 			/>
 		</div>
 	);
-}
+};

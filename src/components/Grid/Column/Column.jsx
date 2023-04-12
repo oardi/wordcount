@@ -1,7 +1,6 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-export const Column = (props) => {
-
+export const Column = props => {
 	const { children, className = '', ...rest } = props;
 
 	const getCssClasses = () => {
@@ -15,4 +14,4 @@ export const Column = (props) => {
 			{children}
 		</div>
 	);
-}
+};

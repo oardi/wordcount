@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from './Textarea.module.scss';
+import * as styles from './Textarea.module.scss';
 
-export const Textarea = (props) => {
-
+export const Textarea = props => {
 	const { className, ...rest } = props;
 
 	const getCssClass = () => {
@@ -10,9 +9,7 @@ export const Textarea = (props) => {
 		result.push(className);
 		result.push(styles.textarea);
 		return result.filter(r => r).join(' ');
-	}
+	};
 
-	return (
-		<textarea className={getCssClass()} {...rest} />
-	);
-}
+	return <textarea className={getCssClass()} {...rest} />;
+};

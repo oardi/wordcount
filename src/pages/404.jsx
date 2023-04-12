@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
+import React from 'react';
 import { Head, Hero, Layout } from '../components';
 
 export default function Home() {
@@ -17,5 +17,5 @@ export default function Home() {
 				</p>
 			</div>
 		</Layout>
-	)
+	);
 }
